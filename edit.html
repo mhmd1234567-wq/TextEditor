@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محرر نصوص بسيط</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #000000;
+        }
+        #editor {
+            width: 100%;
+            height: 300px;
+            padding: 10px;
+            border: 1px solid #000000;
+            background-color: rgb(255, 255, 255);
+            overflow: auto;
+            resize: both;
+            outline: none;
+            white-space: pre-wrap;
+        }
+        .toolbar {
+            margin-bottom: 10px;
+        }
+        button {
+            margin-right: 5px;
+            padding: 5px 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>محرر نصوص بسيط</h1>
+
+    <div class="toolbar">
+        <button onclick="execCommand('bold')">عريض</button>
+        <button onclick="execCommand('italic')">مائل</button>
+        <button onclick="execCommand('underline')">تحته خط</button>
+        <button onclick="execCommand('strikeThrough')">يتوسطه خط</button>
+        <button onclick="execCommand('insertUnorderedList')">قائمة نقطية</button>
+        <button onclick="execCommand('insertOrderedList')">قائمة مرقمة</button>
+        <button onclick="execCommand('createLink', prompt('أدخل الرابط:'))">إدراج رابط</button>
+        <button onclick="execCommand('removeFormat')">إزالة التنسيق</button>
+    </div>
+
+    <div id="editor" contenteditable="true">ابدأ الكتابة هنا...</div>
+
+    <script>
+        function execCommand(command, value = null) {
+            document.execCommand(command, false, value);
+        }
+    </script>
+
+</body>
+</html>
